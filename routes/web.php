@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,13 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 // Homepage
 Route::get('/', function () {
-    return 'Welcome to the Homepage';
+    return view('home', ['title' => 'Welcome']);
 })->name('home');
 
 // Product Listings
-Route::get('/products', function () {
-    return 'Browse our Products';
-})->name('products.index');
+Route::view('/products', 'products.index')->name('products.index');
 
 // Product Details Page
 Route::get('/products/{product}', function ($product) {
